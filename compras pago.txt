@@ -1,0 +1,36 @@
+*&---------------------------------------------------------------------*
+*& Report  Z_PP_COMPRAS_PAGO                                           *
+*& Created by : Rogelio Villafuerte de la Cruz                         *
+*&                                                                     *
+*&                                                                     *
+*&                                                                     *
+*&                                                                     *
+*&                                                                     *
+*&---------------------------------------------------------------------*
+*&                                                                     *
+*&                                                                     *
+*&---------------------------------------------------------------------*
+
+REPORT  z_pp_compras_pago MESSAGE-ID  z_mess_compra_pago.
+
+
+INCLUDE ZRE_MM_COMPRAS_PAGO_A.
+*INCLUDE z_pp_compras_pago_a.
+
+
+INCLUDE ZRE_MM_COMPRAS_PAGO_B.
+*INCLUDE z_pp_compras_pago_b.
+
+
+*----------------------------------------------------------------------*
+* Start-of-selection event                                             *
+*----------------------------------------------------------------------*
+
+
+START-OF-SELECTION.
+
+  PERFORM f_fill_tables.
+
+  PERFORM f_fill_catalog.
+
+  PERFORM f_show_report.
